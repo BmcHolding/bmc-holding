@@ -41,7 +41,7 @@ export default function App() {
     setOk(false);
     setErr("");
 
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/_______"; // 👈 sostituisci con il tuo ID
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzaqzeb"; // 👈 sostituisci con il tuo ID
 
     const formEl = e.currentTarget;
     const fd = new FormData(formEl);
