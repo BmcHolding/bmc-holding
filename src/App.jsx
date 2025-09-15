@@ -115,6 +115,7 @@ export default function App() {
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+            <a href="#home" className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
             <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
             <a href="#processo" className="hover:text-[#FF8C42] transition">Come operiamo</a>
