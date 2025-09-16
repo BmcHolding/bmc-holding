@@ -113,13 +113,17 @@ function scrollToTop(e) {
       <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">BMC</div>
-            <div className="leading-tight text-white">
-              <p className="font-semibold tracking-tight">BMC Holding</p>
-              <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
-            </div>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+            <a href="#home" onClick={scrollToTop} className="flex items-center gap-3">
+  <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">
+    BMC
+  </div>
+  <div>
+    <h1 className="leading-tight text-white">BMC Holding</h1>
+    <p className="text-xs text-slate-300">
+      Società di acquisizione e gestione Property Manager
+    </p>
+  </div>
+</a>
             <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
             <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
