@@ -107,7 +107,7 @@ function scrollToTop(e) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
   return (
-<div id="home" className="min-h-screen w-full text-slate-900 bg-white">
+<id="home" className="min-h-screen w-full text-slate-900 bg-white">
       {/* Header */}
       <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
