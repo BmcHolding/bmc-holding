@@ -117,6 +117,7 @@ function scrollToTop(e) {
   <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">
     BMC
   </div>
+);
   <div>
     <h1 className="leading-tight text-white">BMC Holding</h1>
     <p className="text-xs text-slate-300">
