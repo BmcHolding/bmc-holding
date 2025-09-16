@@ -128,7 +128,7 @@ function scrollToTop(e) {
 </a>
             <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
-            <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
+            <a href="#perche scegliere" className="hover:text-[#FF8C42] transition">Perché noi</a>
             <a href="#processo" className="hover:text-[#FF8C42] transition">Come operiamo</a>
             <a href="#risultati" className="hover:text-[#FF8C42] transition">Risultati</a>
             <a href="#contatti" className="hover:text-[#FF8C42] transition">Contatti</a>
