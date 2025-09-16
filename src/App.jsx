@@ -109,20 +109,25 @@ function scrollToTop(e) {
   return (
 <id="home" className="min-h-screen w-full text-slate-900 bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <a href="#home" onClick={scrollToTop} className="flex items-center gap-3">
-  <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">
-    BMC
-  </div>
-    <h1 className="leading-tight text-white">BMC Holding</h1>
-    <p className="text-xs text-slate-300">
-      Società di acquisizione e gestione Property Manager
-    </p>
-  </div>
-);
-</a>
+<header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
+  <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+    {/* LOGO + testo come LINK */}
+    <a
+      href="#home"
+      onClick={scrollToTop}
+      className="flex items-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8C42]"
+      aria-label="Vai all'inizio"
+    >
+      <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">
+        BMC
+      </div>
+      <div className="select-none">
+        <h1 className="leading-tight text-white">BMC Holding</h1>
+        <p className="text-xs text-slate-300">
+          Società di acquisizione e gestione Property Manager
+        </p>
+      </div>
+    </a>
             <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
             <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
