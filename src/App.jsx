@@ -123,6 +123,7 @@ function scrollToTop(e) {
       Società di acquisizione e gestione Property Manager
     </p>
   </div>
+);
 </a>
             <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
