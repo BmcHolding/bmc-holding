@@ -101,8 +101,13 @@ export default function App() {
       runDevTests();
     }
   }, []);
-
+function scrollToTop(e) {
+  // evita la navigazione/hash di default e forza lo scroll
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
   return (
+<div id="home" />
     <div className="min-h-screen w-full text-slate-900 bg-white">
       {/* Header */}
       <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
@@ -115,7 +120,7 @@ export default function App() {
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-white">
-            <a href="#home" className="hover:text-[#FF8C42] transition">Home</a>
+            <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
             <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
             <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
             <a href="#processo" className="hover:text-[#FF8C42] transition">Come operiamo</a>
