@@ -41,7 +41,7 @@ export default function App() {
     setOk(false);
     setErr("");
 
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzaqzeb"; // 👈 sostituisci con il tuo ID
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzaqzeb";
 
     const formEl = e.currentTarget;
     const fd = new FormData(formEl);
@@ -101,41 +101,57 @@ export default function App() {
       runDevTests();
     }
   }, []);
-function scrollToTop(e) {
-  // evita la navigazione/hash di default e forza lo scroll
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+
+  // --- Scroll helpers (header sticky offset) ---
+  const HEADER_OFFSET = 72;
+  function scrollToTop(e) {
+    if (e && typeof e.preventDefault === "function") e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function scrollToId(id, e) {
+    if (e && typeof e.preventDefault === "function") e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) { scrollToTop(); return; }
+    const y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+
   return (
-<id="home" className="min-h-screen w-full text-slate-900 bg-white">
+    <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
       {/* Header */}
-<header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
-  <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-    {/* LOGO + testo come LINK */}
-    <a
-      href="#home"
-      onClick={scrollToTop}
-      className="flex items-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8C42]"
-      aria-label="Vai all'inizio"
-    >
-      <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">
-        BMC
-      </div>
-      <div className="select-none">
-        <h1 className="leading-tight text-white">BMC Holding</h1>
-        <p className="text-xs text-slate-300">
-          Società di acquisizione e gestione Property Manager
-        </p>
-      </div>
-    </a>
-            <a href="#home" onClick={scrollToTop} className="hover:text-[#FF8C42] transition">Home</a>
-            <a href="#servizi" className="hover:text-[#FF8C42] transition">Servizi</a>
-            <a href="#perche" className="hover:text-[#FF8C42] transition">Perché noi</a>
-            <a href="#processo" className="hover:text-[#FF8C42] transition">Come operiamo</a>
-            <a href="#risultati" className="hover:text-[#FF8C42] transition">Risultati</a>
-            <a href="#contatti" className="hover:text-[#FF8C42] transition">Contatti</a>
+      <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+          {/* Logo cliccabile */}
+          <a
+            href="#home"
+            onClick={(e) => scrollToId("home", e)}
+            className="flex items-center gap-3 cursor-pointer"
+            aria-label="BMC Holding - Home"
+          >
+            <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">BMC</div>
+            <div className="leading-tight text-white select-none">
+              <p className="font-semibold tracking-tight">BMC Holding</p>
+              <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
+            </div>
+          </a>
+
+          {/* Navbar */}
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+            <a href="#home" onClick={(e)=>scrollToId("home", e)} className="hover:text-[#FF8C42] transition">Home</a>
+            <a href="#servizi" onClick={(e)=>scrollToId("servizi", e)} className="hover:text-[#FF8C42] transition">Servizi</a>
+            <a href="#perche" onClick={(e)=>scrollToId("perche", e)} className="hover:text-[#FF8C42] transition">Perché noi</a>
+            <a href="#processo" onClick={(e)=>scrollToId("processo", e)} className="hover:text-[#FF8C42] transition">Come operiamo</a>
+            <a href="#risultati" onClick={(e)=>scrollToId("risultati", e)} className="hover:text-[#FF8C42] transition">Risultati</a>
+            <a href="#contatti" onClick={(e)=>scrollToId("contatti", e)} className="hover:text-[#FF8C42] transition">Contatti</a>
           </nav>
-          <a href="#contatti" className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition">Contattaci</a>
+
+          <a
+            href="#contatti"
+            onClick={(e)=>scrollToId("contatti", e)}
+            className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
+          >
+            Contattaci
+          </a>
         </div>
       </header>
 
@@ -151,8 +167,8 @@ function scrollToTop(e) {
               Offriamo annunci ottimizzati, prezzi dinamici, check-in, pulizie e gestione burocratica. Tu incassi, al resto pensiamo noi.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a href="#contatti" className="inline-flex items-center justify-center rounded-xl bg-[#FF8C42] text-white px-5 py-3 text-sm font-medium hover:bg-orange-500 transition">Richiedi una consulenza gratuita</a>
-              <a href="#servizi" className="inline-flex items-center justify-center rounded-xl border border-[#FF8C42] text-white px-5 py-3 text-sm font-medium hover:bg-orange-500 transition">Scopri i nostri servizi</a>
+              <a href="#contatti" onClick={(e)=>scrollToId("contatti", e)} className="inline-flex items-center justify-center rounded-xl bg-[#FF8C42] text-white px-5 py-3 text-sm font-medium hover:bg-orange-500 transition">Richiedi una consulenza gratuita</a>
+              <a href="#servizi" onClick={(e)=>scrollToId("servizi", e)} className="inline-flex items-center justify-center rounded-xl border border-[#FF8C42] text-white px-5 py-3 text-sm font-medium hover:bg-orange-500 transition">Scopri i nostri servizi</a>
             </div>
             <ul className="mt-6 text-sm text-blue-100 grid grid-cols-1 sm:grid-cols-3 gap-2">
               <li>✔ Gestione completa</li>
@@ -171,7 +187,7 @@ function scrollToTop(e) {
                 <div className="text-xs text-slate-500">Ricavo annuo stimato</div>
                 <div className="text-2xl font-semibold">€ 11.400</div>
               </div>
-              <div className="rounded-xl border border-slate-200 p-4 col-span-2">
+              <div className="rounded-2xl border border-slate-200 p-4 col-span-2">
                 <div className="text-xs text-slate-500">Nota</div>
                 <div className="text-sm">Valori indicativi: personalizziamo la stima dopo un sopralluogo.</div>
               </div>
@@ -196,18 +212,9 @@ function scrollToTop(e) {
         <p className="mt-2 text-slate-600">Pacchetti flessibili: dal co-hosting base al servizio completo.</p>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           {[
-            {
-              title: "Marketing & Annunci",
-              pts: ["Foto e descrizioni ottimizzate", "Pubblicazione su Airbnb/Booking", "Calendario sincronizzato"],
-            },
-            {
-              title: "Operatività & Ospiti",
-              pts: ["Check-in/out e assistenza", "Pulizie professionali", "Kit cortesia e biancheria"],
-            },
-            {
-              title: "Pricing & Compliance",
-              pts: ["Prezzi dinamici per stagione/eventi", "Alloggiati Web & imposta soggiorno", "Flussi ISTAT regionali"],
-            },
+            { title: "Marketing & Annunci",   pts: ["Foto e descrizioni ottimizzate", "Pubblicazione su Airbnb/Booking", "Calendario sincronizzato"] },
+            { title: "Operatività & Ospiti",  pts: ["Check-in/out e assistenza", "Pulizie professionali", "Kit cortesia e biancheria"] },
+            { title: "Pricing & Compliance",  pts: ["Prezzi dinamici per stagione/eventi", "Alloggiati Web & imposta soggiorno", "Flussi ISTAT regionali"] },
           ].map((c, i) => (
             <div key={i} className="rounded-2xl border border-slate-200 p-6 hover:shadow-sm transition bg-[#F3F4F6]">
               <h3 className="font-semibold text-lg text-[#0A2740]">{c.title}</h3>
@@ -233,7 +240,7 @@ function scrollToTop(e) {
           <div className="rounded-2xl border border-slate-200 p-6 bg-white">
             <h3 className="font-semibold">KPI che monitoriamo</h3>
             <div className="mt-4 grid grid-cols-2 gap-4 text-center">
-              <div className="rounded-xl border border-slate-200 p-4">
+              <div className="rounded-xl border border-slate-2 00 p-4">
                 <div className="text-xs text-slate-500">Occupazione</div>
                 <div className="text-2xl font-semibold">65–85%</div>
               </div>
@@ -259,10 +266,10 @@ function scrollToTop(e) {
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Come operiamo (in 4 passi)</h2>
         <div className="mt-8 grid md:grid-cols-4 gap-6">
           {[
-            { n: "1", t: "Sopralluogo", d: "Valutazione immobile e dotazioni." },
-            { n: "2", t: "Setup", d: "Foto, annunci, pricing dinamico." },
-            { n: "3", t: "Go-Live", d: "Check-in, pulizie, assistenza ospiti." },
-            { n: "4", t: "Ottimizzazione", d: "Report e miglioramento continuo." },
+            { n: "1", t: "Sopralluogo",   d: "Valutazione immobile e dotazioni." },
+            { n: "2", t: "Setup",         d: "Foto, annunci, pricing dinamico." },
+            { n: "3", t: "Go-Live",       d: "Check-in, pulizie, assistenza ospiti." },
+            { n: "4", t: "Ottimizzazione",d: "Report e miglioramento continuo." },
           ].map((s, i) => (
             <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white">
               <div className="h-8 w-8 rounded-full bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">{s.n}</div>
@@ -370,7 +377,7 @@ function scrollToTop(e) {
             <span className="px-2">·</span>
             <button onClick={reopenCookieBanner} className="underline decoration-slate-400 hover:text-[#FF8C42]">Gestisci cookie</button>
             <span className="px-2">·</span>
-            <a href="#contatti" className="hover:text-[#FF8C42]">Contatti</a>
+            <a href="#contatti" onClick={(e)=>scrollToId("contatti", e)} className="hover:text-[#FF8C42]">Contatti</a>
           </div>
         </div>
       </footer>
