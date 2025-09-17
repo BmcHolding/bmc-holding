@@ -227,7 +227,7 @@ export default function App() {
       </section>
 
       {/* Perché noi */}
-      <section id="perche" className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="perche" className="mx-auto max-w-6xl px-4 pb-16 scroll-mt-24">
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Perché scegliere BMC Holding</h2>
