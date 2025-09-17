@@ -145,7 +145,7 @@ function scrollToSection(id, offset = 180) {
             <a href="#home" onClick={(e)=>scrollToId("home", e)} className="hover:text-[#FF8C42] transition">Home</a>
             <a
   href="#servizi"
-  onClick={(e) => { e.preventDefault(); scrollToSection("servizi", 180); }}
+  onClick={(e) => { e.preventDefault(); scrollToSection("servizi", 200); }}
   className="hover:text-[#FF8C42] transition"
 >
   Servizi
