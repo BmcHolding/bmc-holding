@@ -115,7 +115,7 @@ export default function App() {
     const y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
-function scrollToSection(id, offset = 130) {
+function scrollToSection(id, offset = 120) {
   const el = document.getElementById(id);
   if (!el) return;
   const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
