@@ -133,8 +133,11 @@ function scrollToSection(id, offset = 100) {
             className="flex items-center gap-3 cursor-pointer"
             aria-label="BMC Holding - Home"
           >
-            <div className="h-9 w-9 rounded-xl bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">BMC</div>
-            <div className="leading-tight text-white select-none">
+            <img
+  src="/logo-bmc.png"
+  alt="BMC Holding Property Management"
+  className="h-12 w-auto"
+/>
               <p className="font-semibold tracking-tight">BMC Holding</p>
               <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
             </div>
