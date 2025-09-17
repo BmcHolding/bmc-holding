@@ -207,7 +207,7 @@ export default function App() {
       </section>
 
       {/* Servizi */}
-      <section id="servizi" className="mx-auto max-w-6xl px-4 py-16 bg-white">
+      <section id="servizi" className="mx-auto max-w-6xl px-4 py-16 bg-white scroll-mt-24">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0A2740]">I nostri servizi</h2>
         <p className="mt-2 text-slate-600">Pacchetti flessibili: dal co-hosting base al servizio completo.</p>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
