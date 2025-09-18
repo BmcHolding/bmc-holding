@@ -133,11 +133,8 @@ function scrollToId(id, e, offset = 100) {
       <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           {/* Logo cliccabile */}
-          <a>
-            {/* Logo cliccabile */}
-{/* Logo cliccabile */}
-<a
-  href="#home"
+
+<a href="#home"
   onClick={(e) => scrollToId("home", e)}
   className="flex items-center gap-3 cursor-pointer"
   aria-label="BMC Holding - Home"
