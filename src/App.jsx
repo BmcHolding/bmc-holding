@@ -135,7 +135,7 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   <img
   src="/logo-bmc-transparent.png?v=1"
   alt="BMC Holding Property Management"
-  className="h-12 w-auto"
+  className="h-12 w-auto drop-shadow-md"
 />
   
   <div>
