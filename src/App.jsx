@@ -133,10 +133,11 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   aria-label="BMC Holding - Home"
 >
   <img
-    src="/logo-bmc.png?v=2"          // cache-buster v=2
-    alt="BMC Holding Property Management"
-    className="h-12 w-auto"
-  />
+  src="/logo-bmc-transparent.png?v=1"
+  alt="BMC Holding Property Management"
+  className="h-12 w-auto"
+/>
+  
   <div>
     <p className="font-semibold tracking-tight text-white">BMC Holding</p>
     <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
