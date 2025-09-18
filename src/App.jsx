@@ -103,18 +103,21 @@ export default function App() {
   }, []);
 
   // --- Scroll helpers (header sticky offset) ---
-  const HEADER_OFFSET = 72;
-  function scrollToTop(e) {
-    if (e && typeof e.preventDefault === "function") e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  function scrollToId(id, e) {
-    if (e && typeof e.preventDefault === "function") e.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) { scrollToTop(); return; }
-    const y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
+  // --- Scroll helpers (header sticky offset) ---
+const HEADER_OFFSET = 72;
+
+function scrollToTop(e) {
+  if (e && typeof e.preventDefault === "function") e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function scrollToId(id, e, offset = HEADER_OFFSET) {
+  if (e && typeof e.preventDefault === "function") e.preventDefault();
+  const el = document.getElementById(id);
+  if (!el) { scrollToTop(); return; }
+  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
 function scrollToId(id, e, offset = 100) {
   // evita la navigazione/hash di default e forza lo scroll dolce
   if (e && typeof e.preventDefault === "function") e.preventDefault();
