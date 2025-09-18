@@ -148,11 +148,12 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
             <a href="#home" onClick={(e)=>scrollToId("home", e)} className="hover:text-[#FF8C42] transition">Home</a>
             <a
   href="#servizi"
-  onClick={(e) => { e.preventDefault(); scrollToSection("servizi", 150); }}
+  onClick={(e) => scrollToId("servizi", e, 20)} // usa scrollToId (non scrollToSection)
   className="hover:text-[#FF8C42] transition"
 >
   Servizi
 </a>
+
             <a href="#perche" onClick={(e)=>scrollToId("perche", e)} className="hover:text-[#FF8C42] transition">Perché noi</a>
             <a href="#processo" onClick={(e)=>scrollToId("processo", e)} className="hover:text-[#FF8C42] transition">Come operiamo</a>
             <a href="#risultati" onClick={(e)=>scrollToId("risultati", e)} className="hover:text-[#FF8C42] transition">Risultati</a>
