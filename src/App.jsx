@@ -104,6 +104,7 @@ export default function App() {
 
   // --- Scroll helpers (header sticky offset) ---
   // --- Scroll helpers (header sticky offset) ---
+// --- Scroll helpers (header sticky offset) ---
 const HEADER_OFFSET = 72;
 
 function scrollToTop(e) {
@@ -113,16 +114,12 @@ function scrollToTop(e) {
 
 function scrollToId(id, e, offset = HEADER_OFFSET) {
   if (e && typeof e.preventDefault === "function") e.preventDefault();
-}
-
   const el = document.getElementById(id);
-  if (!el) return;
-
-  const y =
-    el.getBoundingClientRect().top + window.pageYOffset - offset;
-
+  if (!el) { scrollToTop(); return; }
+  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
   window.scrollTo({ top: y, behavior: "smooth" });
 }
+
   return (
     <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
       {/* Header */}
