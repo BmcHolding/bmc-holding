@@ -134,20 +134,25 @@ function scrollToId(id, e, offset = 100) {
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           {/* Logo cliccabile */}
           <a>
-            href="#home"
-            onClick={(e) => scrollToId("home", e)}
-            className="flex items-center gap-3 cursor-pointer"
-            aria-label="BMC Holding - Home"
-          >
-            <img
-  src="/logo-bmc.png"
-  alt="BMC Holding Property Management"
-  className="h-12 w-auto"
-/>
-              <p className="font-semibold tracking-tight">BMC Holding</p>
-              <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
-            </div>
-          </a>
+            {/* Logo cliccabile */}
+<a
+  href="#home"
+  onClick={(e) => scrollToId("home", e, 0)}  // offset 0: porta proprio in cima
+  className="flex items-center gap-3 cursor-pointer"
+  aria-label="BMC Holding - Home"
+>
+  <img
+    src="/logo-bmc.png"
+    alt="BMC Holding Property Management"
+    className="h-12 w-auto"
+  />
+  <div>
+    <p className="font-semibold tracking-tight">BMC Holding</p>
+    <p className="text-xs text-slate-300">
+      Società di acquisizione e gestione Property Manager
+    </p>
+  </div>
+</a>
 
           {/* Navbar */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-white">
