@@ -135,22 +135,21 @@ function scrollToId(id, e, offset = 100) {
           {/* Logo cliccabile */}
           <a>
             {/* Logo cliccabile */}
+{/* Logo cliccabile */}
 <a
   href="#home"
-  onClick={(e) => scrollToId("home", e, 0)}  // offset 0: porta proprio in cima
+  onClick={(e) => scrollToId("home", e)}
   className="flex items-center gap-3 cursor-pointer"
   aria-label="BMC Holding - Home"
 >
   <img
-    src="/logo-bmc.png"
+    src="/logo-bmc.png?v=2"          // cache-buster v=2
     alt="BMC Holding Property Management"
     className="h-12 w-auto"
   />
   <div>
-    <p className="font-semibold tracking-tight">BMC Holding</p>
-    <p className="text-xs text-slate-300">
-      Società di acquisizione e gestione Property Manager
-    </p>
+    <p className="font-semibold tracking-tight text-white">BMC Holding</p>
+    <p className="text-xs text-slate-300">Società di acquisizione e gestione Property Manager</p>
   </div>
 </a>
 
