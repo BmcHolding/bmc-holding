@@ -115,10 +115,16 @@ export default function App() {
     const y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
-function scrollToSection(id, offset = 100) {
+function scrollToId(id, e, offset = 100) {
+  // evita la navigazione/hash di default e forza lo scroll dolce
+  if (e && typeof e.preventDefault === "function") e.preventDefault();
+
   const el = document.getElementById(id);
   if (!el) return;
-  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  const y =
+    el.getBoundingClientRect().top + window.pageYOffset - offset;
+
   window.scrollTo({ top: y, behavior: "smooth" });
 }
   return (
