@@ -165,7 +165,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
 </a>
         Servizi
       </a>
-
       <a
         href="#perche"
         onClick={(e) => scrollToId("perche", e)}
