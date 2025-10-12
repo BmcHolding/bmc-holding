@@ -123,27 +123,87 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   return (
   <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
     {/* Header */}
-    <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-        {/* Logo cliccabile */}
-        <a
-          href="#home"
-          onClick={(e) => scrollToId("home", e)}
-          className="flex items-center gap-3 cursor-pointer"
-          aria-label="BMC Holding - Home"
-        >
-          <img
-            src="/logo-bmc-transparent.png?v=1"
-            alt="BMC Holding Property Management"
-            className="h-12 w-auto drop-shadow-md"
-          />
-          <div>
-            <p className="font-semibold tracking-tight text-white">BMC Holding</p>
-            <p className="text-xs text-slate-300">
-              Società di acquisizione e gestione Property Manager
-            </p>
-          </div>
-        </a>
+<header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
+  <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+    {/* Logo cliccabile */}
+    <a
+      href="#home"
+      onClick={(e) => scrollToId("home", e)}
+      className="flex items-center gap-3 cursor-pointer"
+      aria-label="BMC Holding - Home"
+    >
+      <img
+        src="/logo-bmc-transparent.png?v=1"
+        alt="BMC Holding Property Management"
+        className="h-12 w-auto drop-shadow-md"
+      />
+      <div>
+        <p className="font-semibold tracking-tight text-white">BMC Holding</p>
+        <p className="text-xs text-slate-300">
+          Società di acquisizione e gestione Property Manager
+        </p>
+      </div>
+    </a>
+
+    {/* Navbar */}
+    <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+      <a
+        href="#home"
+        onClick={(e) => scrollToId("home", e)}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Home
+      </a>
+
+      <a
+        href="#servizi"
+        onClick={(e) => scrollToId("servizi", e, 20)} {/* usa scrollToId (non scrollToSection) */}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Servizi
+      </a>
+
+      <a
+        href="#perche"
+        onClick={(e) => scrollToId("perche", e)}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Perché noi
+      </a>
+      <a
+        href="#processo"
+        onClick={(e) => scrollToId("processo", e)}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Come operiamo
+      </a>
+      <a
+        href="#risultati"
+        onClick={(e) => scrollToId("risultati", e)}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Risultati
+      </a>
+      <a
+        href="#contatti"
+        onClick={(e) => scrollToId("contatti", e)}
+        className="hover:text-[#FF8C42] transition"
+      >
+        Contatti
+      </a>
+    </nav>
+
+    {/* CTA */}
+    <a
+      href="#contatti"
+      onClick={(e) => scrollToId("contatti", e)}
+      className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
+    >
+      Contattaci
+    </a>
+  </div>
+</header>
+
       </div>
     </header>
 
