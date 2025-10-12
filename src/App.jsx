@@ -155,11 +155,14 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
         Home
       </a>
 
-      <a
-        href="#servizi"
-        onClick={(e) => scrollToId("servizi", e, 20)} {/* usa scrollToId (non scrollToSection) */}
-        className="hover:text-[#FF8C42] transition"
-      >
+      {/* Link Servizi */}
+<a
+  href="#servizi"
+  onClick={(e) => scrollToId("servizi", e, 20)}
+  className="hover:text-[#FF8C42] transition"
+>
+  Servizi
+</a>
         Servizi
       </a>
 
