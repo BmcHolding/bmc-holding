@@ -259,7 +259,7 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           <div className="rounded-2xl border border-slate-200 p-6 bg-white">
             <h3 className="font-semibold">KPI che monitoriamo</h3>
             <div className="mt-4 grid grid-cols-2 gap-4 text-center">
-              <div className="rounded-xl border border-slate-2 00 p-4">
+              <div className="rounded-xl border border-slate-200 p-4">
                 <div className="text-xs text-slate-500">Occupazione</div>
                 <div className="text-2xl font-semibold">65–85%</div>
               </div>
