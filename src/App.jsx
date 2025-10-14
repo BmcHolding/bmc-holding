@@ -194,9 +194,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
         Contatti
       </a>
     </nav>
-
-    {/* CTA */}
-    <a
       href="#contatti"
       onClick={(e) => scrollToId("contatti", e)}
       className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
