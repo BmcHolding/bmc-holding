@@ -205,8 +205,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
     </a>
   </div>
 </header>
-
-      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#0A2740] via-[#1E3A8A] to-white text-white">
         <div className="mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
