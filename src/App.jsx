@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-
 export default function App() {
   const [submitting, setSubmitting] = useState(false);
   const [ok, setOk] = useState(false);
   const [err, setErr] = useState("");
   const [consent, setConsent] = useState(false);
-
   // Cookie banner
   const [cookieChoice, setCookieChoice] = useState(null); // 'accepted' | 'rejected' | null
   const [showCookie, setShowCookie] = useState(false);
-
   useEffect(() => {
     const stored = typeof window !== "undefined" ? localStorage.getItem("cookieConsent") : null;
     if (!stored) {
@@ -19,14 +16,12 @@ export default function App() {
       if (stored === "accepted") initAnalytics();
     }
   }, []);
-
   function handleCookieConsent(decision) {
     setCookieChoice(decision);
     setShowCookie(false);
     try { localStorage.setItem("cookieConsent", decision); } catch {}
     if (decision === "accepted") initAnalytics();
   }
-
   function reopenCookieBanner() {
     setShowCookie(true);
   }
@@ -34,15 +29,12 @@ export default function App() {
   function initAnalytics() {
     // Qui potrai incollare in futuro GA4/Pixel
   }
-
   async function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
     setOk(false);
     setErr("");
-
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzaqzeb";
-
     const formEl = e.currentTarget;
     const fd = new FormData(formEl);
     const data = {
@@ -54,7 +46,6 @@ export default function App() {
       consent: consent ? "true" : "false",
       source: "bmc-holding-website",
     };
-
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -75,7 +66,6 @@ export default function App() {
       setSubmitting(false);
     }
   }
-
   // Dev tests facoltativi
   function runDevTests() {
     console.groupCollapsed("[BMC] Dev Tests");
@@ -95,7 +85,6 @@ export default function App() {
       console.groupEnd();
     }
   }
-
   useEffect(() => {
     if (typeof window !== "undefined" && window.__BMC_RUN_TESTS__) {
       runDevTests();
@@ -106,12 +95,10 @@ export default function App() {
   // --- Scroll helpers (header sticky offset) ---
 // --- Scroll helpers (header sticky offset) ---
 const HEADER_OFFSET = 72;
-
 function scrollToTop(e) {
   if (e && typeof e.preventDefault === "function") e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 function scrollToId(id, e, offset = HEADER_OFFSET) {
   if (e && typeof e.preventDefault === "function") e.preventDefault();
   const el = document.getElementById(id);
@@ -119,7 +106,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
   window.scrollTo({ top: y, behavior: "smooth" });
 }
-
   return (
   <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
     {/* Header */}
@@ -154,7 +140,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
       >
         Home
       </a>
-
       {/* Link Servizi */}
 <a
   href="#servizi"
@@ -241,7 +226,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           </div>
         </div>
       </section>
-
       {/* Trust strip */}
       <section className="border-y border-slate-200 bg-[#F3F4F6]">
         <div className="mx-auto max-w-6xl px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-[#0A2740]">
@@ -251,7 +235,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           <div className="text-sm"><span className="font-semibold text-[#FF8C42]">Report</span> mensili trasparenti</div>
         </div>
       </section>
-
       {/* Servizi */}
       <section id="servizi" className="mx-auto max-w-6xl px-4 py-16 bg-white scroll-mt-36">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0A2740]">I nostri servizi</h2>
@@ -271,7 +254,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           ))}
         </div>
       </section>
-
       {/* Perché noi */}
       <section id="perche" className="mx-auto max-w-6xl px-4 pb-16 scroll-mt-24">
         <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -306,7 +288,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           </div>
         </div>
       </section>
-
       {/* Processo */}
       <section id="processo" className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Come operiamo (in 4 passi)</h2>
@@ -325,7 +306,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           ))}
         </div>
       </section>
-
       {/* Risultati */}
       <section id="risultati" className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Casi & testimonianze</h2>
@@ -336,7 +316,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           ))}
         </div>
       </section>
-
       {/* Contatti */}
       <section id="contatti" className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-2xl border border-slate-200 p-6 bg-white">
@@ -396,7 +375,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           </div>
         </div>
       </section>
-
       {/* Cookie banner */}
       {showCookie && (
         <div className="fixed inset-x-4 bottom-4 z-50">
@@ -411,7 +389,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           </div>
         </div>
       )}
-
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-[#0A2740] text-white">
         <div className="mx-auto max-w-6xl px-4 py-8 text-sm grid md:grid-cols-2 gap-4">
