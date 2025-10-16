@@ -133,58 +133,63 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
 
     {/* Navbar */}
     <nav className="hidden md:flex items-center gap-6 text-sm text-white">
-      <a
-        href="#home"
-        onClick={(e) => scrollToId("home", e)}
-        className="hover:text-[#FF8C42] transition"
-      >
-        Home
-      </a>
-      {/* Link Servizi */}
+  <a
+    href="#home"
+    onClick={(e) => scrollToId("home", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Home
+  </a>
+
+  {/* Link Servizi */}
+  <a
+    href="#servizi"
+    onClick={(e) => scrollToId("servizi", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Servizi
+  </a>
+
+  <a
+    href="#perche"
+    onClick={(e) => scrollToId("perche", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Perché noi
+  </a>
+
+  <a
+    href="#processo"
+    onClick={(e) => scrollToId("processo", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Come operiamo
+  </a>
+
+  <a
+    href="#risultati"
+    onClick={(e) => scrollToId("risultati", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Risultati
+  </a>
+
+  <a
+    href="#contatti"
+    onClick={(e) => scrollToId("contatti", e)}
+    className="hover:text-[#FF8C42] transition"
+  >
+    Contatti
+  </a>
+</nav>
+
 <a
-  href="#servizi"
-  onClick={(e) => scrollToId("servizi", e, 20)}
-  className="hover:text-[#FF8C42] transition"
+  href="#contatti"
+  onClick={(e) => scrollToId("contatti", e)}
+  className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
 >
-  Servizi
+  Contattaci
 </a>
-        Servizi
-      </a>
-      <a
-        href="#perche"
-        onClick={(e) => scrollToId("perche", e)}
-        className="hover:text-[#FF8C42] transition"
-      >
-        Perché noi
-      </a>
-      <a
-        href="#processo"
-        onClick={(e) => scrollToId("processo", e)}
-        className="hover:text-[#FF8C42] transition"
-      >
-        Come operiamo
-      </a>
-      <a
-        href="#risultati"
-        onClick={(e) => scrollToId("risultati", e)}
-        className="hover:text-[#FF8C42] transition"
-      >
-        Risultati
-      </a>
-      <a
-        href="#contatti"
-        onClick={(e) => scrollToId("contatti", e)}
-        className="hover:text-[#FF8C42] transition"
-      >
-        Contatti
-      </a>
-    </nav>
-      href="#contatti"
-      onClick={(e) => scrollToId("contatti", e)}
-      className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
-    >
-      Contattaci
-    </a>
   </div>
 </header>
       <section className="relative overflow-hidden bg-gradient-to-b from-[#0A2740] via-[#1E3A8A] to-white text-white">
