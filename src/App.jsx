@@ -130,9 +130,12 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
         </p>
       </div>
     </a>
-
     {/* Navbar */}
     <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+      <a
+        href="#home"
+        onClick={(e) => scrollToId("home", e)}
+        className="hover:text-[#FF8C42] transition"
   {/* Link Servizi */}
   <a
     href="#servizi"
