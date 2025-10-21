@@ -108,6 +108,48 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   window.scrollTo({ top: y, behavior: "smooth" });
 }
   return (
+    <HelmetProvider>
+    <Helmet>
+      <title>BMC Holding – Property Manager per Affitti Brevi e Case Vacanza</title>
+      <meta name="description" content="BMC Holding è una società specializzata nella gestione professionale di immobili e affitti brevi. Offriamo tariffe dinamiche, gestione completa e rendiconti trasparenti. Tu incassi, al resto pensiamo noi." />
+      <meta name="keywords" content="Property Manager, Affitti Brevi, Case Vacanza, Gestione Immobiliare, Co-hosting, BMC Holding, Airbnb, Booking, Formia, Lazio, Turismo, Locazioni Turistiche" />
+      <meta name="author" content="BMC Holding" />
+      <meta name="robots" content="index, follow" />
+
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.png" type="image/png" />
+
+      {/* Open Graph */}
+      <meta property="og:title" content="BMC Holding – Property Manager per Affitti Brevi e Case Vacanza" />
+      <meta property="og:description" content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding." />
+      <meta property="og:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
+      <meta property="og:url" content="https://bmcholding.it" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="it_IT" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="BMC Holding – Property Manager per Affitti Brevi e Case Vacanza" />
+      <meta name="twitter:description" content="Gestione completa per i tuoi affitti brevi. Aumenta i guadagni con BMC Holding." />
+      <meta name="twitter:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
+
+      {/* Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "BMC Holding",
+          "url": "https://bmcholding.it",
+          "logo": "https://bmcholding.it/logo-bmc-transparent.png",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61566386930479",
+            "https://www.instagram.com/bmc.holding",
+            "https://www.linkedin.com/company/bmc-holding"
+          ],
+          "description": "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
+        }
+      `}</script>
+    </Helmet>
   <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
     {/* Header */}
 <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
