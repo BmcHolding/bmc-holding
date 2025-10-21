@@ -149,6 +149,7 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           "description": "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
         }
       `}</script>
+      <HelmetProvider>
     </Helmet>
   <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
     {/* Header */}
@@ -190,7 +191,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   >
     Servizi
   </a>
-
   <a
     href="#perche"
     onClick={(e) => scrollToId("perche", e)}
@@ -206,7 +206,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   >
     Come operiamo
   </a>
-
   <a
     href="#risultati"
     onClick={(e) => scrollToId("risultati", e)}
@@ -214,7 +213,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   >
     Risultati
   </a>
-
   <a
     href="#contatti"
     onClick={(e) => scrollToId("contatti", e)}
@@ -223,7 +221,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
     Contatti
   </a>
 </nav>
-
 <a
   href="#contatti"
   onClick={(e) => scrollToId("contatti", e)}
