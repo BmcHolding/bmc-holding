@@ -26,7 +26,6 @@ export default function App() {
   function reopenCookieBanner() {
     setShowCookie(true);
   }
-
   function initAnalytics() {
     // Qui potrai incollare in futuro GA4/Pixel
   }
@@ -91,7 +90,6 @@ export default function App() {
       runDevTests();
     }
   }, []);
-
   // --- Scroll helpers (header sticky offset) ---
   // --- Scroll helpers (header sticky offset) ---
 // --- Scroll helpers (header sticky offset) ---
