@@ -136,7 +136,7 @@ export default function App() {
         <meta name="author" content="BMC Holding" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://bmcholding.it/" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
