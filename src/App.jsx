@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 // SPOSTATA FUORI dal componente per rispettare le regole dei React Hooks e per stabilità
 function initAnalytics() {
-  // Qui potrai incollare in futuro GA4/Pixel
+  // Qui potrai incollare in futuro GA4/Pixel (es. Google Analytics, Facebook Pixel)
 }
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
   // Cookie banner
   const [cookieChoice, setCookieChoice] = useState(null); // 'accepted' | 'rejected' | null
   const [showCookie, setShowCookie] = useState(false);
+
   useEffect(() => {
     const stored = typeof window !== "undefined" ? localStorage.getItem("cookieConsent") : null;
     if (!stored) {
@@ -23,23 +24,28 @@ export default function App() {
       if (stored === "accepted") initAnalytics();
     }
   }, []);
+
   function handleCookieConsent(decision) {
     setCookieChoice(decision);
     setShowCookie(false);
     try { localStorage.setItem("cookieConsent", decision); } catch {}
     if (decision === "accepted") initAnalytics();
   }
+
   function reopenCookieBanner() {
     setShowCookie(true);
   }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
     setOk(false);
     setErr("");
+
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzaqzeb";
     const formEl = e.currentTarget;
     const fd = new FormData(formEl);
+
     const data = {
       name: (fd.get("name") || "").toString(),
       email: (fd.get("email") || "").toString(),
@@ -49,6 +55,7 @@ export default function App() {
       consent: consent ? "true" : "false",
       source: "bmc-holding-website",
     };
+
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -69,6 +76,7 @@ export default function App() {
       setSubmitting(false);
     }
   }
+
   // Dev tests facoltativi
   function runDevTests() {
     console.groupCollapsed("[BMC] Dev Tests");
@@ -88,17 +96,21 @@ export default function App() {
       console.groupEnd();
     }
   }
+
   useEffect(() => {
     if (typeof window !== "undefined" && window.__BMC_RUN_TESTS__) {
       runDevTests();
     }
   }, []);
+
   // --- Scroll helpers (header sticky offset) ---
   const HEADER_OFFSET = 72;
+
   function scrollToTop(e) {
     if (e && typeof e.preventDefault === "function") e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
   function scrollToId(id, e, offset = HEADER_OFFSET) {
     if (e && typeof e.preventDefault === "function") e.preventDefault();
     const el = document.getElementById(id);
@@ -106,20 +118,25 @@ export default function App() {
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
-  
-  // Rimosso il primo tag <Helmet> superfluo. Il <div> seguente è ora l'unico elemento radice valido.
+
   return (
+    // Questo è l'UNICO elemento radice del componente
     <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
       
-      {/* === SEO META START === */}
+      {/* === SEO META START (Unificato) === */}
+      {/* Ora c'è UN SOLO tag Helmet con tutti i metadati */}
       <Helmet>
         {/* Base */}
-        <title>BMC Holding — Property Manager per Affitti Brevi</title>
+        <title>BMC Holding — Property Manager per Affitti Brevi e Case Vacanza</title>
         <meta
           name="description"
           content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding."
         />
+        <meta name="keywords" content="Property Manager, Affitti Brevi, Case Vacanza, Gestione Immobiliare, Co-hosting, BMC Holding, Airbnb, Booking, Formia, Lazio, Turismo, Locazioni Turistiche" />
+        <meta name="author" content="BMC Holding" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://bmcholding.it/" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
