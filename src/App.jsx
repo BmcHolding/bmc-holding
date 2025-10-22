@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet} from "react-helmet-async";
 export default function App() {
   const [submitting, setSubmitting] = useState(false);
   const [ok, setOk] = useState(false);
@@ -106,7 +106,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
   window.scrollTo({ top: y, behavior: "smooth" });
 }
   return (
-    <HelmetProvider>
     <Helmet>
       <title>BMC Holding – Property Manager per Affitti Brevi e Case Vacanza</title>
       <meta name="description" content="BMC Holding è una società specializzata nella gestione professionale di immobili e affitti brevi. Offriamo tariffe dinamiche, gestione completa e rendiconti trasparenti. Tu incassi, al resto pensiamo noi." />
@@ -147,7 +146,6 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
           "description": "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
         }
       `}</script>
-      <HelmetProvider>
     </Helmet>
   <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
       {/* === SEO META START === */}
