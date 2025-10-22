@@ -149,6 +149,44 @@ export default function App() {
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#0A2740" />
         
+{/* Structured Data (JSON-LD) */}
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://bmcholding.it/#org",
+        "name": "BMC Holding",
+        "url": "https://bmcholding.it/",
+        "logo": "https://bmcholding.it/logo-bmc-transparent.png",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61566386930479",
+          "https://www.instagram.com/bmc.holding",
+          "https://www.linkedin.com/company/bmc-holding"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+39 329 8988141",
+            "contactType": "customer service",
+            "areaServed": "IT",
+            "availableLanguage": ["it", "en"]
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://bmcholding.it/#website",
+        "url": "https://bmcholding.it/",
+        "name": "BMC Holding",
+        "publisher": { "@id": "https://bmcholding.it/#org" },
+        "inLanguage": "it-IT"
+      }
+    ]
+  })}
+</script>
+
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="it_IT" />
