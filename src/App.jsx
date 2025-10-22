@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { Helmet} from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
+
+// SPOSTATA FUORI dal componente per rispettare le regole dei React Hooks e per stabilità
+function initAnalytics() {
+  // Qui potrai incollare in futuro GA4/Pixel
+}
+
 export default function App() {
   const [submitting, setSubmitting] = useState(false);
   const [ok, setOk] = useState(false);
@@ -25,9 +31,6 @@ export default function App() {
   }
   function reopenCookieBanner() {
     setShowCookie(true);
-  }
-  function initAnalytics() {
-    // Qui potrai incollare in futuro GA4/Pixel
   }
   async function handleSubmit(e) {
     e.preventDefault();
@@ -91,203 +94,165 @@ export default function App() {
     }
   }, []);
   // --- Scroll helpers (header sticky offset) ---
-  // --- Scroll helpers (header sticky offset) ---
-// --- Scroll helpers (header sticky offset) ---
-const HEADER_OFFSET = 72;
-function scrollToTop(e) {
-  if (e && typeof e.preventDefault === "function") e.preventDefault();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-function scrollToId(id, e, offset = HEADER_OFFSET) {
-  if (e && typeof e.preventDefault === "function") e.preventDefault();
-  const el = document.getElementById(id);
-  if (!el) { scrollToTop(); return; }
-  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
-  window.scrollTo({ top: y, behavior: "smooth" });
-}
+  const HEADER_OFFSET = 72;
+  function scrollToTop(e) {
+    if (e && typeof e.preventDefault === "function") e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function scrollToId(id, e, offset = HEADER_OFFSET) {
+    if (e && typeof e.preventDefault === "function") e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) { scrollToTop(); return; }
+    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+  
+  // Rimosso il primo tag <Helmet> superfluo. Il <div> seguente è ora l'unico elemento radice valido.
   return (
-    <Helmet>
-      <title>BMC Holding – Property Manager per Affitti Brevi e Case Vacanza</title>
-      <meta name="description" content="BMC Holding è una società specializzata nella gestione professionale di immobili e affitti brevi. Offriamo tariffe dinamiche, gestione completa e rendiconti trasparenti. Tu incassi, al resto pensiamo noi." />
-      <meta name="keywords" content="Property Manager, Affitti Brevi, Case Vacanza, Gestione Immobiliare, Co-hosting, BMC Holding, Airbnb, Booking, Formia, Lazio, Turismo, Locazioni Turistiche" />
-      <meta name="author" content="BMC Holding" />
-      <meta name="robots" content="index, follow" />
-
-      {/* Favicon */}
-      <link rel="icon" href="/favicon.png" type="image/png" />
-
-      {/* Open Graph */}
-      <meta property="og:title" content="BMC Holding – Property Manager per Affitti Brevi e Case Vacanza" />
-      <meta property="og:description" content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding." />
-      <meta property="og:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
-      <meta property="og:url" content="https://bmcholding.it" />
-      <meta property="og:type" content="website" />
-      <meta property="og:locale" content="it_IT" />
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="BMC Holding – Property Manager per Affitti Brevi e Case Vacanza" />
-      <meta name="twitter:description" content="Gestione completa per i tuoi affitti brevi. Aumenta i guadagni con BMC Holding." />
-      <meta name="twitter:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
-
-      {/* Structured Data */}
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "BMC Holding",
-          "url": "https://bmcholding.it",
-          "logo": "https://bmcholding.it/logo-bmc-transparent.png",
-          "sameAs": [
-            "https://www.facebook.com/profile.php?id=61566386930479",
-            "https://www.instagram.com/bmc.holding",
-            "https://www.linkedin.com/company/bmc-holding"
-          ],
-          "description": "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
-        }
-      `}</script>
-    </Helmet>
-  <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
+    <div id="home" className="min-h-screen w-full text-slate-900 bg-white">
+      
       {/* === SEO META START === */}
-  <Helmet>
-    {/* Base */}
-    <title>BMC Holding — Property Manager per Affitti Brevi</title>
-    <meta
-      name="description"
-      content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding."
-    />
-    <link rel="canonical" href="https://bmcholding.it/" />
+      <Helmet>
+        {/* Base */}
+        <title>BMC Holding — Property Manager per Affitti Brevi</title>
+        <meta
+          name="description"
+          content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding."
+        />
+        <link rel="canonical" href="https://bmcholding.it/" />
 
-    {/* Open Graph */}
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="it_IT" />
-    <meta property="og:site_name" content="BMC Holding" />
-    <meta
-      property="og:title"
-      content="BMC Holding — Property Manager per Affitti Brevi e Case Vacanza"
-    />
-    <meta
-      property="og:description"
-      content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding."
-    />
-    <meta property="og:url" content="https://bmcholding.it/" />
-    <meta property="og:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="it_IT" />
+        <meta property="og:site_name" content="BMC Holding" />
+        <meta
+          property="og:title"
+          content="BMC Holding — Property Manager per Affitti Brevi e Case Vacanza"
+        />
+        <meta
+          property="og:description"
+          content="Gestione professionale e completa per i tuoi immobili. Offriamo check-in, pulizie, tariffe dinamiche e report trasparenti. Affidati a BMC Holding."
+        />
+        <meta property="og:url" content="https://bmcholding.it/" />
+        <meta property="og:image" content="https://bmcholding.it/logo-bmc-transparent.png" />
 
-    {/* Twitter */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="BMC Holding — Property Manager per Affitti Brevi e Case Vacanza"
-    />
-    <meta
-      name="twitter:description"
-      content="Gestione completa per i tuoi affitti brevi. Aumenta il guadagno con BMC Holding."
-    />
-    <meta
-      name="twitter:image"
-      content="https://bmcholding.it/logo-bmc-transparent.png"
-    />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="BMC Holding — Property Manager per Affitti Brevi e Case Vacanza"
+        />
+        <meta
+          name="twitter:description"
+          content="Gestione completa per i tuoi affitti brevi. Aumenta il guadagno con BMC Holding."
+        />
+        <meta
+          name="twitter:image"
+          content="https://bmcholding.it/logo-bmc-transparent.png"
+        />
 
-    {/* JSON-LD (come stringa) */}
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "BMC Holding",
-          "url": "https://bmcholding.it",
-          "logo": "https://bmcholding.it/logo-bmc-transparent.png",
-          "sameAs": [
-            "https://www.facebook.com/profile.php?id=615658369803479",
-            "https://www.instagram.com/bmc.holding_",
-            "https://www.linkedin.com/company/bmc-holding"
-          ],
-          "description":
-            "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
-        }),
-      }}
-    />
-  </Helmet>
-  {/* === SEO META END === */}
-    {/* Header */}
-<header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
-  <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-    {/* Logo cliccabile */}
-    <a
-      href="#home"
-      onClick={(e) => scrollToId("home", e)}
-      className="flex items-center gap-3 cursor-pointer"
-      aria-label="BMC Holding - Home"
-    >
-      <img
-        src="/logo-bmc-transparent.png?v=1"
-        alt="BMC Holding Property Management"
-        className="h-12 w-auto drop-shadow-md"
-      />
-      <div>
-        <p className="font-semibold tracking-tight text-white">BMC Holding</p>
-        <p className="text-xs text-slate-300">
-          Società di acquisizione e gestione Property Manager
-        </p>
-      </div>
-    </a>
-    {/* Navbar */}
-    <nav className="hidden md:flex items-center gap-6 text-sm text-white">
-      <a
-        href="#home"
-        onClick={(e) => scrollToId("home", e)}
-        className="hover:text-[#FF8C42] transition"
-        >
-        Home
-      </a>
-  {/* Link Servizi */}
-  <a
-    href="#servizi"
-    onClick={(e) => scrollToId("servizi", e)}
-    className="hover:text-[#FF8C42] transition"
-  >
-    Servizi
-  </a>
-  <a
-    href="#perche"
-    onClick={(e) => scrollToId("perche", e)}
-    className="hover:text-[#FF8C42] transition"
-  >
-    Perché noi
-  </a>
+        {/* JSON-LD (come stringa) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "BMC Holding",
+              "url": "https://bmcholding.it",
+              "logo": "https://bmcholding.it/logo-bmc-transparent.png",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=615658369803479",
+                "https://www.instagram.com/bmc.holding_",
+                "https://www.linkedin.com/company/bmc-holding"
+              ],
+              "description":
+                "BMC Holding è una società specializzata nella gestione di affitti brevi e locazioni turistiche. Offriamo soluzioni professionali di property management, massimizzando i rendimenti immobiliari."
+            }),
+          }}
+        />
+      </Helmet>
+      {/* === SEO META END === */}
+      
+      {/* Header */}
+      <header className="sticky top-0 z-30 bg-[#0A2740] backdrop-blur border-b border-slate-200">
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+          {/* Logo cliccabile */}
+          <a
+            href="#home"
+            onClick={(e) => scrollToId("home", e)}
+            className="flex items-center gap-3 cursor-pointer"
+            aria-label="BMC Holding - Home"
+          >
+            <img
+              src="/logo-bmc-transparent.png?v=1"
+              alt="BMC Holding Property Management"
+              className="h-12 w-auto drop-shadow-md"
+            />
+            <div>
+              <p className="font-semibold tracking-tight text-white">BMC Holding</p>
+              <p className="text-xs text-slate-300">
+                Società di acquisizione e gestione Property Manager
+              </p>
+            </div>
+          </a>
+          {/* Navbar */}
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white">
+            <a
+              href="#home"
+              onClick={(e) => scrollToId("home", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Home
+            </a>
+            {/* Link Servizi */}
+            <a
+              href="#servizi"
+              onClick={(e) => scrollToId("servizi", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Servizi
+            </a>
+            <a
+              href="#perche"
+              onClick={(e) => scrollToId("perche", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Perché noi
+            </a>
 
-  <a
-    href="#processo"
-    onClick={(e) => scrollToId("processo", e)}
-    className="hover:text-[#FF8C42] transition"
-  >
-    Come operiamo
-  </a>
-  <a
-    href="#risultati"
-    onClick={(e) => scrollToId("risultati", e)}
-    className="hover:text-[#FF8C42] transition"
-  >
-    Risultati
-  </a>
-  <a
-    href="#contatti"
-    onClick={(e) => scrollToId("contatti", e)}
-    className="hover:text-[#FF8C42] transition"
-  >
-    Contatti
-  </a>
-</nav>
-<a
-  href="#contatti"
-  onClick={(e) => scrollToId("contatti", e)}
-  className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
->
-  Contattaci
-</a>
-  </div>
-</header>
+            <a
+              href="#processo"
+              onClick={(e) => scrollToId("processo", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Come operiamo
+            </a>
+            <a
+              href="#risultati"
+              onClick={(e) => scrollToId("risultati", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Risultati
+            </a>
+            <a
+              href="#contatti"
+              onClick={(e) => scrollToId("contatti", e)}
+              className="hover:text-[#FF8C42] transition"
+            >
+              Contatti
+            </a>
+          </nav>
+          <a
+            href="#contatti"
+            onClick={(e) => scrollToId("contatti", e)}
+            className="hidden md:inline-flex items-center gap-2 rounded-xl bg-[#FF8C42] text-white px-4 py-2 text-sm hover:bg-orange-500 transition"
+          >
+            Contattaci
+          </a>
+        </div>
+      </header>
+      
       <section className="relative overflow-hidden bg-gradient-to-b from-[#0A2740] via-[#1E3A8A] to-white text-white">
         <div className="mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -342,9 +307,9 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
         <p className="mt-2 text-slate-600">Pacchetti flessibili: dal co-hosting base al servizio completo.</p>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           {[
-            { title: "Marketing & Annunci",   pts: ["Foto e descrizioni ottimizzate", "Pubblicazione su Airbnb/Booking", "Calendario sincronizzato"] },
-            { title: "Operatività & Ospiti",  pts: ["Check-in/out e assistenza", "Pulizie professionali", "Kit cortesia e biancheria"] },
-            { title: "Pricing & Compliance",  pts: ["Prezzi dinamici per stagione/eventi", "Alloggiati Web & imposta soggiorno", "Flussi ISTAT regionali"] },
+            { title: "Marketing & Annunci", pts: ["Foto e descrizioni ottimizzate", "Pubblicazione su Airbnb/Booking", "Calendario sincronizzato"] },
+            { title: "Operatività & Ospiti", pts: ["Check-in/out e assistenza", "Pulizie professionali", "Kit cortesia e biancheria"] },
+            { title: "Pricing & Compliance", pts: ["Prezzi dinamici per stagione/eventi", "Alloggiati Web & imposta soggiorno", "Flussi ISTAT regionali"] },
           ].map((c, i) => (
             <div key={i} className="rounded-2xl border border-slate-200 p-6 hover:shadow-sm transition bg-[#F3F4F6]">
               <h3 className="font-semibold text-lg text-[#0A2740]">{c.title}</h3>
@@ -394,10 +359,10 @@ function scrollToId(id, e, offset = HEADER_OFFSET) {
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Come operiamo (in 4 passi)</h2>
         <div className="mt-8 grid md:grid-cols-4 gap-6">
           {[
-            { n: "1", t: "Sopralluogo",   d: "Valutazione immobile e dotazioni." },
-            { n: "2", t: "Setup",         d: "Foto, annunci, pricing dinamico." },
-            { n: "3", t: "Go-Live",       d: "Check-in, pulizie, assistenza ospiti." },
-            { n: "4", t: "Ottimizzazione",d: "Report e miglioramento continuo." },
+            { n: "1", t: "Sopralluogo", d: "Valutazione immobile e dotazioni." },
+            { n: "2", t: "Setup", d: "Foto, annunci, pricing dinamico." },
+            { n: "3", t: "Go-Live", d: "Check-in, pulizie, assistenza ospiti." },
+            { n: "4", t: "Ottimizzazione", d: "Report e miglioramento continuo." },
           ].map((s, i) => (
             <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white">
               <div className="h-8 w-8 rounded-full bg-[#FF8C42] text-white grid place-items-center text-sm font-semibold">{s.n}</div>
