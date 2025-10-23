@@ -328,7 +328,7 @@ export default function App() {
         </div>
       </header>
       
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0A2740] via-[#1E3A8A] to-white text-white">
+      <section className="relative hero-fallback overflow-hidden bg-gradient-to-b from-[#0A2740] via-[#1E3A8A] to-white text-white">
         <div className="mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
