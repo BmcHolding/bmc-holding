@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
+<style>
+  /* Evita il flash bianco e dà un minimo di struttura prima di Tailwind */
+  html,body { background:#0b1e2e; }
+  .hero-fallback {
+    background: linear-gradient(180deg,#0b1e2e 0%, #123a6b 60%, #1e3a8a 100%);
+    min-height: 520px; /* copri il primo viewport */
+  }
+</style>
+
     <!-- Tailwind (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 
