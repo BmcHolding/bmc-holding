@@ -249,11 +249,21 @@ export default function App() {
             className="flex items-center gap-3 cursor-pointer"
             aria-label="BMC Holding - Home"
           >
-            <img
-              src="/logo-bmc-transparent.png?v=1"
-              alt="BMC Holding Property Management"
-              className="h-12 w-auto drop-shadow-md"
-            />
+            
+<picture>
+  <source srcSet="/logo-bmc-transparent.webp" type="image/webp" />
+  <img
+    src="/logo-bmc-transparent.png"
+    alt="BMC Holding Property Management"
+    className="h-12 w-auto drop-shadow-md"
+    width={48}
+    height={48}
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+</picture>
+
             <div>
               <p className="font-semibold tracking-tight text-white">BMC Holding</p>
               <p className="text-xs text-slate-300">
