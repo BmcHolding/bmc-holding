@@ -3,6 +3,28 @@ import { Helmet } from "react-helmet-async";
 
 // SPOSTATA FUORI dal componente per rispettare le regole dei React Hooks e per stabilità
 function initAnalytics() {
+  if (typeof window === "undefined") return;
+  if (window.__gaLoaded) return; // evita doppio load
+
+  // 1) carico gtag.js dinamicamente
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-5EQ0KGTF5";
+  s.onload = () => {
+    // 2) inizializzo GA
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", "G-5EQ0KGTF5", {
+      anonymize_ip: true,
+    });
+  };
+  document.head.appendChild(s);
+  window.__gaLoaded = true;
+}
+{
   // Qui potrai incollare in futuro GA4/Pixel (es. Google Analytics, Facebook Pixel)
 }
 
