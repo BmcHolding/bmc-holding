@@ -25,9 +25,6 @@
   }
 </style>
 
-    <!-- Tailwind (CDN) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
     <script>
   tailwind.config = {
     darkMode: 'media',
@@ -76,8 +73,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  </head>
+    
+    <!-- Tailwind output CSS -->
+<link rel="preload" as="style" href="/output.css" />
+<link rel="stylesheet" href="/output.css">
 
+  </head>
   <body class="bg-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
