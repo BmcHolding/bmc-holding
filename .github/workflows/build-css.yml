@@ -1,0 +1,35 @@
+name: Build Tailwind CSS
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'public/index.html'
+      - 'tailwind.config.js'
+      - '.github/workflows/build-css.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # serve per poter committare l'output.css nel repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Tailwind (minified)
+        run: npx tailwindcss@3.4.13 -i ./src/tw.css -o ./public/output.css --minify
+
+      - name: Commit output.css
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: build Tailwind -> public/output.css"
+          file_pattern: public/output.css
