@@ -24,6 +24,10 @@
   .hero-fallback {
     background: linear-gradient(180deg,#0b1e2e 0%, #123a6b 60%, #1e3a8a 100%);
     min-height: 520px; /* copri il primo viewport */
+    <!-- Defer layout/paint per le sezioni sotto la piega -->
+     .cv {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
   }
 </style>
 
