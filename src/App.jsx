@@ -390,7 +390,7 @@ export default function App() {
         </div>
       </section>
       {/* Trust strip */}
-      <section className="border-y border-slate-200 bg-[#F3F4F6]">
+      <section className="cv border-y border-slate-200 bg-[#F3F4F6]">
         <div className="mx-auto max-w-6xl px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-[#0A2740]">
           <div className="text-sm"><span className="font-semibold text-[#FF8C42]">+24h</span> supporto ospiti</div>
           <div className="text-sm"><span className="font-semibold text-[#FF8C42]">SOP</span> operativi chiari</div>
@@ -399,7 +399,7 @@ export default function App() {
         </div>
       </section>
       {/* Servizi */}
-      <section id="servizi" className="mx-auto max-w-6xl px-4 py-16 bg-white scroll-mt-36">
+      <section id="servizi" className="cv mx-auto max-w-6xl px-4 py-16 bg-white scroll-mt-36">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0A2740]">I nostri servizi</h2>
         <p className="mt-2 text-slate-600">Pacchetti flessibili: dal co-hosting base al servizio completo.</p>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
@@ -418,7 +418,7 @@ export default function App() {
         </div>
       </section>
       {/* Perché noi */}
-      <section id="perche" className="mx-auto max-w-6xl px-4 pb-16 scroll-mt-24">
+      <section id="perche" className="cv mx-auto max-w-6xl px-4 pb-16 scroll-mt-24">
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Perché scegliere BMC Holding</h2>
@@ -452,7 +452,7 @@ export default function App() {
         </div>
       </section>
       {/* Processo */}
-      <section id="processo" className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="processo" className="cv mx-auto max-w-6xl px-4 pb-16">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Come operiamo (in 4 passi)</h2>
         <div className="mt-8 grid md:grid-cols-4 gap-6">
           {[
@@ -470,7 +470,7 @@ export default function App() {
         </div>
       </section>
       {/* Risultati */}
-      <section id="risultati" className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="risultati" className="cv mx-auto max-w-6xl px-4 pb-16">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Casi & testimonianze</h2>
         <p className="mt-2 text-slate-600">Inseriremo case study reali e recensioni una volta attivi i primi immobili.</p>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
@@ -480,7 +480,7 @@ export default function App() {
         </div>
       </section>
       {/* Contatti */}
-      <section id="contatti" className="mx-auto max-w-6xl px-4 pb-20">
+      <section id="contatti" className="cv mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-2xl border border-slate-200 p-6 bg-white">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Parliamo dei tuoi immobili</h2>
           <p className="mt-2 text-slate-600">Compila il form o scrivici su WhatsApp: prepariamo una simulazione gratuita e senza impegno.</p>
@@ -553,7 +553,7 @@ export default function App() {
         </div>
       )}
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-[#0A2740] text-white">
+      <footer className="cv border-t border-slate-200 bg-[#0A2740] text-white">
         <div className="mx-auto max-w-6xl px-4 py-8 text-sm grid md:grid-cols-2 gap-4">
           <div>© {new Date().getFullYear()} BMC Holding. Tutti i diritti riservati.</div>
           <div className="md:text-right">
