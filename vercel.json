@@ -1,25 +1,48 @@
 {
   "headers": [
-    {
-      "source": "/(favicon.ico|favicon.svg)",
+    /* ---------- ASSET LUNGAMENTE CACHEABILI (1 anno) ---------- */
+    { "source": "/favicon.ico",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
-    {
-      "source": "/(apple-touch-icon.png|android-icon-.*\\.png|ms-icon-.*\\.png|web-app-manifest-.*\\.png)",
+    { "source": "/favicon.svg",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
-    {
-      "source": "/(site\\.webmanifest|manifest\\.json|browserconfig\\.xml)",
+
+    { "source": "/apple-touch-icon*.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    { "source": "/android-icon-*.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    { "source": "/ms-icon-*.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    { "source": "/web-app-manifest-*.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+
+    { "source": "/logo-bmc-transparent.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    { "source": "/logo-bmc-transparent.webp",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+
+    /* ---------- FILE da aggiornare più spesso (1 settimana) ---------- */
+    { "source": "/output.css",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
+    },
+    { "source": "/site.webmanifest",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
-    {
-      "source": "/output\\.css",
+    { "source": "/manifest.json",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
-    {
-      "source": "/(logo-bmc-transparent\\.(png|webp))",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    { "source": "/browserconfig.xml",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
+
+    /* ---------- Security headers su tutto il resto ---------- */
     {
       "source": "/(.*)",
       "headers": [
