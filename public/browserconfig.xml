@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <!-- Loghi tile Windows -->
+      <square70x70logo src="/ms-icon-70x70.png"/>
+      <square150x150logo src="/ms-icon-150x150.png"/>
+      <square310x310logo src="/ms-icon-310x310.png"/>
+
+      <!-- Colore coerente con il tema -->
+      <TileColor>#0B1E2E</TileColor>
+    </tile>
+    <tilecolor>#0B1E2E</tilecolor>
+  </msapplication>
+</browserconfig>
