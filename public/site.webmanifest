@@ -1,7 +1,15 @@
 {
   "name": "BMC Holding",
   "short_name": "BMC",
-  "description": "BMC Holding – Property Manager per Affitti Brevi e Case Vacanza. Gestione professionale di immobili e locazioni turistiche.",
+  "description": "BMC Holding — Property Manager per Affitti Brevi e Case Vacanza. Gestione professionale di immobili e locazioni turistiche.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B1E2E",
+  "theme_color": "#0B1E2E",
+  "lang": "it-IT",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,14 +23,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "theme_color": "#FF8C42",
-  "background_color": "#0A2740",
-  "start_url": "/",
-  "scope": "/",
-  "id": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "lang": "it-IT",
-  "dir": "ltr"
+  ]
 }
